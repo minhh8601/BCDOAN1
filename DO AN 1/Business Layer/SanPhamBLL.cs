@@ -39,8 +39,6 @@ namespace DOAN1.BusinessLayer
                 list.RemoveAt(i);
                 spDA.Update(list);
             }
-            else
-                throw new Exception("Khong ton tai ma nay");
         }
         public void SuaSanPham(Sanpham sp)
         {
@@ -54,7 +52,6 @@ namespace DOAN1.BusinessLayer
                 list.Add(sp);
                 spDA.Update(list);
             }
-  
         }
         public List<Sanpham> TimSanPham(Sanpham sp)
         {

@@ -25,7 +25,7 @@ namespace DOAN1.Presenation
         public void Hien()
         {
             Console.Clear();
-            Console.WriteLine("HIEN THI THONG TIN SAN PHAM");
+            Console.WriteLine("HIEN THI THONG TIN KHACH HANG");
             List<Khachhang> list = khBLL.GetAllKhachHang();
             foreach (var kh in list)
                 Console.WriteLine(kh.MaKhach + "\t" + kh.Hoten + "\t" + kh.QueQuan + "\t" + kh.DiaChi + "\t" + kh.SodienThoai);
@@ -81,6 +81,28 @@ namespace DOAN1.Presenation
                     Console.WriteLine(list[i].MaKhach + "\t" + list[i].Hoten + "\t" + list[i].QueQuan + "\t" + list[i].DiaChi + "\t" + list[i].SodienThoai);
             }
         }
+        public void Xoa()
+        {
+            Console.Clear();
+            Console.WriteLine("XOA THONG TIN KHACH HANG");
+            List<Khachhang> list = khBLL.GetAllKhachHang();
+            string makhachhang;
+            Console.Write("Nhap ma khach hang can xoa:");
+            makhachhang = Console.ReadLine();
+            int i = 0;
+            for (i = 0; i < list.Count; ++i)
+                if (list[i].MaKhach == makhachhang) break;
+
+            if (i < list.Count)
+            {
+                list.RemoveAt(i);
+                khBLL.XoaKhachHang(makhachhang);
+            }
+            else
+            {
+                Console.WriteLine("Khong ton tai ma khach hang nay");
+            }
+        }
         public void Menu()
         {
             do
@@ -114,6 +136,12 @@ namespace DOAN1.Presenation
                         Console.ReadKey();
                         break;
                     case ConsoleKey.F4:
+                        Hien();
+                        Console.WriteLine("Nhap phim bat ky de tiep tuc...");
+                        Console.ReadKey();
+                        break;
+                    case ConsoleKey.F5:
+                        Xoa();
                         Hien();
                         Console.WriteLine("Nhap phim bat ky de tiep tuc...");
                         Console.ReadKey();

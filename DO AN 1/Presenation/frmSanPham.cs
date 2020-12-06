@@ -49,18 +49,18 @@ namespace DOAN1.Presenation
                 Console.Write("Nhap ma san pham moi:");
                 string ma = Console.ReadLine();
                 if (!string.IsNullOrEmpty(ma)) sp.Masp = ma;
-                Console.Write("Nhap ten san pham moi:");
-                string ten = Console.ReadLine();
-                if (!string.IsNullOrEmpty(ten)) sp.Tensp = ten;
                 Console.Write("Nhap ma loai san pham moi :");
                 string loai = Console.ReadLine();
                 if (!string.IsNullOrEmpty(loai)) sp.Maloai = loai;
+                Console.Write("Nhap ten san pham moi:");
+                string ten = Console.ReadLine();
+                if (!string.IsNullOrEmpty(ten)) sp.Tensp = ten;
                 Console.Write("Gia so luong san pham moi:");
                 int sl = int.Parse(Console.ReadLine());
                 if (sl > 0) sp.Soluong = sl;
                 Console.Write("Nhap gia ban san pham moi:");
                 int giamoi = int.Parse(Console.ReadLine());
-                if (giamoi>0) sp.Giaban  = giamoi;
+                if (giamoi > 0) sp.Giaban = giamoi;
                 Console.Write("Nhap nha san xuat moi:");
                 string nsx = Console.ReadLine();
                 if (!string.IsNullOrEmpty(nsx)) sp.Nhasx = nsx;
@@ -71,6 +71,7 @@ namespace DOAN1.Presenation
                 Console.WriteLine("Khong ton tai ma san pham nay");
             }
         }
+
         public void Tim()
         {
             Console.Clear();
@@ -83,6 +84,30 @@ namespace DOAN1.Presenation
             {
                 if (masanpham1 == list[i].Masp)
                     Console.WriteLine(list[i].Masp + "\t" + list[i].Tensp + "\t" + list[i].Maloai + "\t" + list[i].Soluong + "\t" + list[i].Giaban + "\t" + list[i].Nhasx);
+                else
+                    Console.WriteLine("Khong ton tai ma san pham nay!");
+            }
+        }
+        public void Xoa()
+        {
+            Console.Clear();
+            Console.WriteLine("XOA THONG TIN NHAN VIEN");
+            List<Sanpham> list = spBLL.GetAllSanPham();
+            string masanpham;
+            Console.Write("Nhap ma san pham can xoa:");
+            masanpham = Console.ReadLine();
+            int i = 0;
+            for (i = 0; i < list.Count; ++i)
+                if (list[i].Masp == masanpham) break;
+
+            if (i < list.Count)
+            {
+                list.RemoveAt(i);
+                spBLL.XoaSanPham(masanpham);
+            }
+            else
+            {
+                Console.WriteLine("Khong ton tai ma san pham nay");
             }
         }
         public void Menu()
@@ -118,6 +143,12 @@ namespace DOAN1.Presenation
                         Console.ReadKey();
                         break;
                     case ConsoleKey.F4:
+                        Hien();
+                        Console.WriteLine("Nhap phim bat ky de tiep tuc...");
+                        Console.ReadKey();
+                        break;
+                    case ConsoleKey.F5:
+                        Xoa();
                         Hien();
                         Console.WriteLine("Nhap phim bat ky de tiep tuc...");
                         Console.ReadKey();

@@ -9,21 +9,22 @@ namespace DOAN1.Entities
     public class NhanVien
     {
         #region Các thành phần dữ liệu
-        private int manv;
+        private string manv;
         private string tennv;
         private string diachinv;
         private string sdtnv;
         private string gmail;
         private double hsl;
-        private static int luongcb;
+        private int luongcb;
         #endregion
         #region Các thuộc tính
-        public int MaNhanVien
+        public string MaNhanVien
         {
             get { return manv; }
             set
             {
-                manv = value;
+                if (!string.IsNullOrEmpty(value))
+                    manv = value;
             }
         }
         public string TenNhanVien
@@ -31,7 +32,8 @@ namespace DOAN1.Entities
             get { return tennv; }
             set
             {
-                tennv = value;
+                if (!string.IsNullOrEmpty(value))
+                    tennv = value;
             }
         }
         public string DiaChiNV
@@ -39,15 +41,17 @@ namespace DOAN1.Entities
             get { return diachinv; }
             set
             {
-                diachinv = value;
+                if (!string.IsNullOrEmpty(value))
+                    diachinv = value;
             }
         }
-        public string SoDeinThoaiNV
+        public string SoDienThoaiNV
         {
             get { return sdtnv; }
             set
             {
-                sdtnv = value;
+                if (!string.IsNullOrEmpty(value))
+                    sdtnv = value;
             }
         }
         public string Gmail
@@ -55,7 +59,8 @@ namespace DOAN1.Entities
             get { return gmail; }
             set
             {
-                gmail = value;
+                if (!string.IsNullOrEmpty(value))
+                    gmail = value;
             }
         }
         public double HeSoLuong
@@ -67,7 +72,7 @@ namespace DOAN1.Entities
                     hsl = value;
             }
         }
-        public static int LuongCoBan
+        public int LuongCoBan
         {
             get { return luongcb; }
             set
@@ -79,7 +84,7 @@ namespace DOAN1.Entities
         #endregion
         #region Các phương thức
         public NhanVien() { }
-        public NhanVien(int manv, string tennv, string diachinv, string sdtnv, string gmail, double hsl, int luongcb)
+        public NhanVien(string manv, string tennv, string diachinv, string sdtnv, string gmail, double hsl, int luongcb)
         {
             this.manv = manv;
             this.tennv = tennv;
@@ -87,7 +92,7 @@ namespace DOAN1.Entities
             this.sdtnv = sdtnv;
             this.gmail = gmail;
             this.hsl = hsl;
-
+            this.luongcb = luongcb;
         }
         public NhanVien(NhanVien nv)
         {
@@ -97,16 +102,8 @@ namespace DOAN1.Entities
             this.sdtnv = nv.sdtnv;
             this.gmail = nv.gmail;
             this.hsl = nv.hsl;
+            this.luongcb = nv.luongcb;
 
-        }
-        public NhanVien(int manv, string tennv, string diachinv, string sdtnv, string gmail, double hsl)
-        {
-            this.manv = manv;
-            this.tennv = tennv;
-            this.diachinv = diachinv;
-            this.sdtnv = sdtnv;
-            this.gmail = gmail;
-            this.hsl = hsl;
         }
         public double Luong()
         {

@@ -43,7 +43,7 @@ namespace DOAN1.DataAccessLayer
         {
             StreamWriter fwrite = File.CreateText(txtSanPham);
             for (int i = 0; i < list.Count; ++i)
-                fwrite.WriteLine(list[i].Masp + "#" + list[i].Tensp + "#" + list[i].Soluong + "#" + list[i].Giaban + "#" + list[i].Nhasx);
+                fwrite.WriteLine(list[i].Masp + "#" + list[i].Maloai + "#" + list[i].Tensp + "#" + list[i].Soluong + "#" + list[i].Giaban + "#" + list[i].Nhasx);
             fwrite.Close();
         }
     }

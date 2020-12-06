@@ -16,9 +16,10 @@ namespace DOAN1
                 Console.Clear();
                 Console.WriteLine(" F1.Quan ly san pham ");
                 Console.WriteLine(" F2.Quan ly khach hang ");
-                Console.WriteLine(" F3.Quan ly hoa don ");
-                Console.WriteLine(" F4.Bao cao/Thong ke ");
-                Console.WriteLine(" F5.Ket thuc ");
+                Console.WriteLine(" F3.Quan ly nhan vien ");
+                Console.WriteLine(" F4.Quan li hoa don ");
+                Console.WriteLine(" F5.Thong ke/ bao cao ");
+                Console.WriteLine(" F6.Ket thuc ");
                 ConsoleKeyInfo kt = Console.ReadKey();
                 switch (kt.Key)
                 {
@@ -30,7 +31,11 @@ namespace DOAN1
                         frmKhachHang frmkh = new frmKhachHang();
                         frmkh.Menu();
                         break;
-                    case ConsoleKey.F5:
+                    case ConsoleKey.F3:
+                        frmNhanVien frmnv = new frmNhanVien();
+                        frmnv.Menu();
+                        break;
+                    case ConsoleKey.F6:
                         Environment.Exit(0);
                         break;
                 }
