@@ -1,0 +1,14 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\DO AN 1",
+    "\\DO AN 1\\Business Layer",
+    "\\DO AN 1\\Business Layer\\Interface",
+    "\\DO AN 1\\DataAccessLayer",
+    "\\DO AN 1\\DataAccessLayer\\Interface",
+    "\\DO AN 1\\Entities",
+    "\\DO AN 1\\Presenation"
+  ],
+  "SelectedNode": "\\DO AN 1\\Presenation\\frmSanPham.cs",
+  "PreviewInSolutionExplorer": false
+}
